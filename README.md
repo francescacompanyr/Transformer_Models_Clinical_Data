@@ -33,18 +33,26 @@ El projecte està implementat utilitzant PyTorch i s'integra amb `wandb` per al 
 ├── models/                # Arquitectures de models
 │   ├── base_model.py
 │   └── transformer.py
-├── notebooks/             # Notebooks per anàlisi i models clàssics
+├── notebooks/ # Notebooks per anàlisi i models clàssics
+│   ├── ct-rate.ipynb
+│   ├── improve_dataset_set.ipynb
+│   ├── radioLung_prova.ipynb
+│   ├── testing_pyhealth.ipynb
 │   └── random-forest_xgboost.ipynb
-
-├── training/              # Scripts principals per executar experiments
-│   ├── kfold.py
-│   ├── kfold_radiolung2.py
-│   └── finetuning.py
 ├── .gitignore
+├── tokenizer.py
+├── trainer.py
+├── kfold.py
+├── kfold_radiolung2.py
+├── finetuning.py
+├── main_test.py
+├── main_test_dataset_diabetes.py
+├── tokenizer_visualitzacio.py
+├── main_test_dataset_diabetes.py
+├── main_test_dataset_diabetes.py
 ├── README.md
 └── requirements.txt
-│   tokenizer.py
-│   trainer.py
+
 ```
 
 
