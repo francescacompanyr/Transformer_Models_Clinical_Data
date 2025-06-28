@@ -1,0 +1,22 @@
+# Core ML/DL
+torch
+scikit-learn
+numpy
+pandas
+wandb
+
+# Transformers & Datasets
+transformers
+datasets
+
+# Machine Learning Clàssic
+xgboost
+
+# Utilitats
+tqdm
+openpyxl  # Per llegir fitxers .xlsx
+python-dateutil
+
+# Per a Jupyter Notebooks
+jupyter
+ipywidgets
