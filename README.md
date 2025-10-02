@@ -26,8 +26,8 @@ El projecte està implementat utilitzant PyTorch i s'integra amb `wandb` per al 
 
 ```
 .
-├── data/                  # Directori per als fitxers de dades (ignorat per git)
-├── dataset/               # Càrrega, preprocessat i partició de dades
+├── data/                  
+├── dataset/               
 │   ├── radiolung.py
 │   └── splitter.py
 ├── models/                # Arquitectures de models
@@ -48,8 +48,6 @@ El projecte està implementat utilitzant PyTorch i s'integra amb `wandb` per al 
 ├── main_test.py
 ├── main_test_dataset_diabetes.py
 ├── tokenizer_visualitzacio.py
-├── main_test_dataset_diabetes.py
-├── main_test_dataset_diabetes.py
 ├── README.md
 └── requirements.txt
 
@@ -71,14 +69,6 @@ Dins de cada script d'entrenament, trobaràs un diccionari `info_runing` que con
     *   `1`: Un tokenizer comú per a totes les característiques categòriques i un altre per a les numèriques.
     *   `2`: Un tokenizer per a cada grup de característiques definit a `dic_group`.
 *   `contextual`: `True` per activar la tokenització contextual (p. ex., `1` -> `"Fumador"`).
-
-### Exemples d'Execució
-
-*   **Entrenar i avaluar amb K-Fold en el dataset de Diabetis:**
-    ```bash
-    python kfold.py
-    ```
-    (Modifica el diccionari `info_runing` dins del fitxer per provar diferents arquitectures).
 
 
 *   **Executar els models de base (Random Forest/XGBoost):**
