@@ -150,7 +150,7 @@ class Transformer(BaseModel):
             self.pretrained_tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
             self.language_model = DistilBertModel.from_pretrained("distilbert-base-uncased")
             self.language_model.to(device)
-            self.pretrained_proj = nn.Linear(768, self.embedding_dim) ########################COMPROVAR QUE ESTIGUI BE AIXO     
+            self.pretrained_proj = nn.Linear(768, self.embedding_dim) 
         
         
         self.transformer = nn.ModuleDict()
