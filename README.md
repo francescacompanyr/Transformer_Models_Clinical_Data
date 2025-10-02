@@ -22,36 +22,6 @@ El projecte està implementat utilitzant PyTorch i s'integra amb `wandb` per al 
 *   **Models ML**: Inclou un notebook amb models clàssics (Random Forest, XGBoost) per comparar resultats.
 *   **Jupiter Notebooks**: Inclou notebooks de diferentes proves que s'han realitzat durant el treball.
 
-## Estructura del Projecte
-
-```
-.
-├── data/                  
-├── dataset/               
-│   ├── radiolung.py
-│   └── splitter.py
-├── models/                # Arquitectures de models
-│   ├── base_model.py
-│   └── transformer.py
-├── notebooks/ # Notebooks per anàlisi i models clàssics
-│   ├── ct-rate.ipynb
-│   ├── improve_dataset_set.ipynb
-│   ├── radioLung_prova.ipynb
-│   ├── testing_pyhealth.ipynb
-│   └── random-forest_xgboost.ipynb
-├── .gitignore
-├── tokenizer.py
-├── trainer.py
-├── kfold.py
-├── kfold_radiolung2.py
-├── finetuning.py
-├── main_test.py
-├── main_test_dataset_diabetes.py
-├── tokenizer_visualitzacio.py
-├── README.md
-└── requirements.txt
-
-```
 
 
 ### Configuració d'un Experiment
@@ -70,8 +40,5 @@ Dins de cada script d'entrenament, trobaràs un diccionari `info_runing` que con
     *   `2`: Un tokenizer per a cada grup de característiques definit a `dic_group`.
 *   `contextual`: `True` per activar la tokenització contextual (p. ex., `1` -> `"Fumador"`).
 
-
-*   **Executar els models de base (Random Forest/XGBoost):**
-    Obre i executa les cel·les del notebook `notebooks/random-forest_xgboost.ipynb` utilitzant Jupyter. Caldrà algunes modificacions dependent del dataset que s'utilitzi.
 
 
