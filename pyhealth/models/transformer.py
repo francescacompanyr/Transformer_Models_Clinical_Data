@@ -245,20 +245,18 @@ class TransformerSeparated(BaseModel):
             self.pretrained_tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
             self.language_model = DistilBertModel.from_pretrained("distilbert-base-uncased")
             self.language_model.to(device)
-            self.pretrained_proj = nn.Linear(768, self.embedding_dim) ########################COMPROVAR QUE ESTIGUI BE AIXO
+            self.pretrained_proj = nn.Linear(768, self.embedding_dim) 
+        
+        if self.corpus_tokenizer == 1:  
 
-        # manera crear el tokenizer
-        if self.corpus_tokenizer == 1:  #tipologia tokenizer (categoric numeric)
-            print(True,'catnum')
             self.add_feature_transform_dataset(self.dataset.input_info)
-        elif self.corpus_tokenizer == 2: # categoria tokenizer (metrica anlitiques condicions)
-            print('tokenizer agrupat')
+        elif self.corpus_tokenizer == 2:
             self.add_feature_transform_grup(self.dataset.input_info)
         
         else: # tokenizer per columna
           for feature_key in self.feature_keys:
-            input_info = self.dataset.input_info[feature_key]  # input_info es un diccionari de diccionaris
-            self.add_feature_transform_layer(feature_key, input_info) #dins aquesta funcio se passa es diccionari de feature i se fa es dict feat_tokenizer
+            input_info = self.dataset.input_info[feature_key] 
+            self.add_feature_transform_layer(feature_key, input_info) 
 
 
         self.transformer = nn.ModuleDict()
@@ -298,7 +296,7 @@ class TransformerSeparated(BaseModel):
                         x = self.pretrained_proj(x) 
                         x = x.unsqueeze(1)
                     mask = torch.any(x !=0, dim=2)
-                        # ficar capa lineal fins que 128 #######################
+                        
                 else:
                     x = self.feat_tokenizers[feature_key].batch_encode_2d(
                         kwargs[feature_key] )
@@ -393,7 +391,6 @@ class TransformerGroup(BaseModel):
             self.language_model.to(device)
             self.pretrained_proj = nn.Linear(768, self.embedding_dim)
 
-       # manera crear el tokenizer
         if self.corpus_tokenizer == 1:  #tipologia tokenizer (categoric numeric)
             print(True,'catnum')
             self.add_feature_transform_dataset(self.dataset.input_info)
@@ -401,10 +398,10 @@ class TransformerGroup(BaseModel):
             print('tokenizer agrupat')
             self.add_feature_transform_grup(self.dataset.input_info)
         
-        else: # tokenizer per columna
+        else: 
           for feature_key in self.feature_keys:
-            input_info = self.dataset.input_info[feature_key]  # input_info es un diccionari de diccionaris
-            self.add_feature_transform_layer(feature_key, input_info) #dins aquesta funcio se passa es diccionari de feature i se fa es dict feat_tokenizer
+            input_info = self.dataset.input_info[feature_key] 
+            self.add_feature_transform_layer(feature_key, input_info) 
 
 
         # Create a transformer for each group in the dictionary
@@ -424,7 +421,6 @@ class TransformerGroup(BaseModel):
         
         for feature_key in self.feature_keys:
             
-            # no hauria de petar pero per si un cas
             group = None
             for group_name, features in self.dic_group.items():
                 if feature_key in features:
